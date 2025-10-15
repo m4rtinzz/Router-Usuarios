@@ -18,7 +18,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #281961;
+  background-color: #291966;
 }
 
 .nav ul {
@@ -30,4 +30,13 @@
 
 .nav ul li {
   margin: 5px;
+}
+
+.nav a {
+  color: #b1a3e7;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #291966;
 }
