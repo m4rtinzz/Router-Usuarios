@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem; /* Adiciona um padding no topo para o conteúdo não ficar atrás do nav */
   text-align: center;
 }
 
@@ -13,21 +13,21 @@
   color: #888;
 }
 
-nav {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background-color: #141245;
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #281961;
 }
 
-nav ul {
-list-style-type: none;
-display: flex;
-justify-content: center;
-margin: 5px;
+.nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
 }
 
-nav ul li {
-margin: 5px;
+.nav ul li {
+  margin: 5px;
 }

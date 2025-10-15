@@ -5,11 +5,16 @@ import Sobre from './pages/Sobre'
 import Contato from './pages/Contato'
 import NaoEncontrada from './pages/NaoEncontrada'
 import Usuario from './pages/Usuario'
+import Dashboard from './pages/Dashboard'
+import Perfil from './pages/dashboard/Perfil'
+import Configuracoes from './pages/dashboard/Configuracoes'
 
 function App() {
   return (
+    <>
     <Router>
-      <nav>
+      <>
+      <nav className="nav">
         <ul>
           <li><Link to="/">Início</Link></li>
           <li><Link to="/sobre">Sobre</Link></li>
@@ -22,9 +27,15 @@ function App() {
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/usuario/:id" element={<Usuario />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="perfil" element={<Perfil />} />
+          <Route path="configuracoes" element={<Configuracoes />} />
+        </Route>
         <Route path="*" element={<NaoEncontrada />} />
       </Routes>
+      </>
     </Router>
+    </>
   )
 }
 export default App
