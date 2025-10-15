@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const Login = () => {
+interface LoginProps {
+  onLoginSuccess: () => void;
+}
+
+const Login = ({ onLoginSuccess }: LoginProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const location = useLocation();
+  const message = location.state?.message;
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,9 +27,8 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Sucesso! Você pode salvar o token se precisar: data.token
+        onLoginSuccess();
         alert('Login bem-sucedido!');
-        navigate('/dashboard');
       } else {
         // Exibe a mensagem de erro da API
         alert(`Erro: ${data.message}`);
@@ -38,6 +42,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h2>Login</h2>
+      {message && <p className="login-message">{message}</p>}
       <form onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="username">Usuário:</label>

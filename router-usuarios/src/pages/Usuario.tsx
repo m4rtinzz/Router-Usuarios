@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 // 1. Definindo a interface para o usuário com os atributos que você pediu.
 // A API retorna mais campos, mas vamos focar nos que você solicitou.
-interface User {
+interface FakeStoreUser {
   id: number;
   username: string;
   email: string;
@@ -13,7 +13,7 @@ interface User {
 function Usuario() {
   const { id } = useParams();
   // 2. Estados para armazenar o usuário, o status de carregamento e possíveis erros.
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<FakeStoreUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -26,7 +26,7 @@ function Usuario() {
         if (!response.ok) {
           throw new Error('Usuário não encontrado');
         }
-        const data: User = await response.json();
+        const data: FakeStoreUser = await response.json();
         setUser(data);
       } catch (err) {
         setError(err as Error);
